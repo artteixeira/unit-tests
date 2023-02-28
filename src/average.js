@@ -22,9 +22,8 @@ const average = (array) => {
     }
     num += array[i];
   }
-  let media = num / array.length;
-  let resultado = media.toFixed();
-  return parseInt(resultado, 10);
+  
+  return parseInt((num / array.length).toFixed(), 10);
 };
 
 module.exports = average;
