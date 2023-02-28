@@ -30,14 +30,34 @@ const productDetails = require('../src/productDetails');
 */
 
 describe('6 - Implemente os casos de teste para a função `productDetails`', () => {
-  it('Verifica se a função `productDetails` tem o comportamento esperado', () => {
-    fail('Teste vazio!');
-    // ESCREVA SEUS TESTES ABAIXO:
-    // Teste se productDetails é uma função.
-    // Teste se o retorno da função é um array.
-    // Teste se o array retornado pela função contém dois itens dentro.
-    // Teste se os dois itens dentro do array retornado pela função são objetos.
-    // Teste se quando passado parâmetros diferentes entre si, os dois objetos também são diferentes entre si.
-    // Teste se os dois productIds terminam com 123.
+  // ESCREVA SEUS TESTES ABAIXO:
+  // Teste se productDetails é uma função.
+  it('Verifica se `productDetails` é uma função', () => {
+    expect(typeof productDetails).toEqual('function')
   });
+  // Teste se o retorno da função é um array.
+  it('Verifica se o retorno da função é um array', () => {
+    const result = productDetails('Coca-Cola', 'Salgadinho');
+    expect(true).toEqual(Array.isArray(result));
+  });
+  // Teste se o array retornado pela função contém dois itens dentro.
+  it('Verifica se o array retornado pela função contém dois itens dentro.', () => {
+    const result = productDetails('Coca-Cola', 'Salgadinho');
+    expect(result.length).toEqual(2);
+  });
+  // Teste se os dois itens dentro do array retornado pela função são objetos.
+  it('Teste se os dois itens dentro do array retornado pela função são objetos.', () => {
+    const result = productDetails('Coca-Cola', 'Salgadinho');
+    expect(typeof result[0]).toEqual('object');
+    expect(typeof result[1]).toEqual('object');
+  });
+  // Teste se os dois productIds terminam com 123.
+  it('Verifica se os dois productIds terminam com 123.', () => {
+    const result = productDetails('Coca-Cola', 'Salgadinho');
+    expect(result[0].details.productId.endsWith('123')).toBeTruthy;
+    expect(result[1].details.productId.endsWith('123')).toBeTruthy;
+  });
+    
+    // Teste se quando passado parâmetros diferentes entre si, os dois objetos também são diferentes entre si.
+   
 });
