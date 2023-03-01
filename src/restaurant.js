@@ -38,10 +38,32 @@
 
 // Faça os ítens de 1 a 3 no arquivo tests/restaurant.spec.js
 
-// 4: Crie uma função `createMenu()` que, recebendo um objeto como parâmetro, retorna esse objeto no seguinte formato: 
+// 4: Crie uma função `createMenu()` que, recebendo um objeto como parâmetro, retorna esse objeto no seguinte formato:
 //  { fetchMenu: () => objetoPassadoPorParametro }.
 
-const createMenu = () => {};
+const createMenu = (obj) => ({ 
+  fetchMenu: () => obj, 
+  consumption: [],
+  order(item) {
+    if (Object.prototype.hasOwnProperty.call(obj.drinks, item) || Object.prototype.hasOwnProperty.call(obj.foods, item)) {
+      this.consumption.push(item);
+      return this.consumption;
+    } 
+      return 'Item indisponível';
+  },
+  pay() {
+    let total = 0;
+    for (let i = 0; i < this.consumption.length; i += 1) {
+      if (Object.prototype.hasOwnProperty.call(obj.drinks, this.consumption[i])) {
+        total += obj.drinks[this.consumption[i]]; 
+      }
+      if (Object.prototype.hasOwnProperty.call(obj.foods, this.consumption[i])) {
+       total += obj.foods[this.consumption[i]]; 
+      }
+    }
+    return total * 1.10;
+  },
+});
 
 // Faça o item 5 no arquivo tests/restaurant.spec.js
 

@@ -92,4 +92,3 @@ describe('9 - Implemente os casos de teste da função `getCharacter`', () => {
     expect(getCharacter('Coquinha')).toBeUndefined();
   });
 })
-  
