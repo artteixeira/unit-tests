@@ -45,7 +45,7 @@ const createMenu = (obj) => ({
   fetchMenu: () => obj, 
   consumption: [],
   order(item) {
-    if (Object.prototype.hasOwnProperty.call(obj.drinks, item) || Object.prototype.hasOwnProperty.call(obj.foods, item)) {
+    if (obj.drinks[item] || obj.foods[item]) {
       this.consumption.push(item);
       return this.consumption;
     } 
@@ -54,10 +54,10 @@ const createMenu = (obj) => ({
   pay() {
     let total = 0;
     for (let i = 0; i < this.consumption.length; i += 1) {
-      if (Object.prototype.hasOwnProperty.call(obj.drinks, this.consumption[i])) {
+      if (obj.drinks[this.consumption[i]]) {
         total += obj.drinks[this.consumption[i]]; 
       }
-      if (Object.prototype.hasOwnProperty.call(obj.foods, this.consumption[i])) {
+      if (obj.foods[this.consumption[i]]) {
        total += obj.foods[this.consumption[i]]; 
       }
     }
