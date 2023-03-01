@@ -57,7 +57,9 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
     expect(result[0].details.productId.endsWith('123')).toBeTruthy;
     expect(result[1].details.productId.endsWith('123')).toBeTruthy;
   });
-    
-    // Teste se quando passado parâmetros diferentes entre si, os dois objetos também são diferentes entre si.
-   
+  // Teste se quando passado parâmetros diferentes entre si, os dois objetos também são diferentes entre si.
+  it('Teste se quando passado parâmetros diferentes entre si, os dois objetos também são diferentes entre si.', () => {
+    const result = productDetails('Coca-Cola', 'Salgadinho');
+    expect(result[0] !== result[1]).toBeTruthy;
+  });
 });
